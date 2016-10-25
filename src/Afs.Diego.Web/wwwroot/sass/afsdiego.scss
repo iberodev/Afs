@@ -1,0 +1,16 @@
+﻿@import "variables.scss";
+
+/* Override materialize font path*/
+$roboto-font-path: "../lib/materialize/fonts/roboto/";
+
+/* Vendor imports */
+@import "../lib/materialize/sass/materialize.scss";
+
+nav {
+    padding-left:30px;
+    padding-right: 30px;
+    ul a, .brand-logo {
+        color: white;
+    }
+    height: 64px;
+}

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>AFS - Diego</title>
+    
+    <!--Import Google Icon Font, let the browser decide whether http or htpps-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import Styles-->
+    <link type="text/css" rel="stylesheet" href="~/css/afsdiego.css" media="screen,projection" />
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav class="indigo z-depth-2">
+            <div class="nav-wrapper">
+                <a href="~/" class="brand-logo"><span class="white-text"> AFS - Diego</span></a>
+                <a href="#" data-activates="afsdiego-mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="~/#sample">Sample</a></li>
+                </ul>
+                <ul class="side-nav indigo lighten-1 z-depth-2" id="afsdiego-mobile-nav">
+                    <li><a class="white-text" href="~/#sample">Sample</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    @RenderBody()
+    <footer class="indigo center-align">
+        <br />
+        <a class="white-text" href="/">&copy; AFS @DateTime.UtcNow.Year</a>
+        <br /><br />
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/materialize/dist/js/materialize.min.js"></script>
+    <script src="~/js/afsdiego.js"></script>
+</body>
+</html>
