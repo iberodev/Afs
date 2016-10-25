@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.core.module.ts"],"names":[],"mappings":"AAAA,CAAC;IACG,YAAY,CAAC;IAEb,OAAO;SACF,MAAM,CAAC,UAAU,EAAE;QAChB,aAAa;KAChB,CAAC,CAAC;AACX,CAAC,CAAC,EAAE,CAAC","file":"app.core.module.js","sourcesContent":["((): void => {\r\n    \"use strict\";\r\n    \r\n    angular\r\n        .module(\"app.core\", [\r\n            \"restangular\"\r\n        ]);\r\n})();"]}

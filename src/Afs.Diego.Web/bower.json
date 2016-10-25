@@ -5,6 +5,8 @@
     "materialize": "0.97.7",
     "jquery": "2.2.4",
     "jquery-validation": "1.15.1",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation-unobtrusive": "3.2.6",
+    "angular": "1.5.8",
+    "restangular": "1.5.2"
   }
 }

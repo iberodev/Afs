@@ -1,0 +1,1 @@
+{"version":3,"sources":["apirequests/apirequests.module.ts"],"names":[],"mappings":"AAAA,CAAC;IACG,YAAY,CAAC;IAEb,OAAO,CAAC,MAAM,CAAC,iBAAiB,EAAE,EAAE,CAAC,CAAC;AAC1C,CAAC,CAAC,EAAE,CAAC","file":"apirequests.module.js","sourcesContent":["((): void => {\r\n    \"use strict\";\r\n\r\n    angular.module(\"app.apirequests\", []);\r\n})();"]}

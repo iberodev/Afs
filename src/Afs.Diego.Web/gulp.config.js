@@ -2,13 +2,16 @@
     var webroot = './wwwroot/',
         bowerDependencies = webroot + "lib",
         scssSourceFolder = webroot + "sass/**/afsdiego.scss",
-        scssDestinationFolder = webroot + "css/";
+        scssDestinationFolder = webroot + "css/",
+        appFolder = webroot + "app/";
 
     var config = {
         bowerDest: bowerDependencies,
         webroot: webroot,
+        appFolder: appFolder,
         scss: scssSourceFolder,
-        scssDest: scssDestinationFolder
+        scssDest: scssDestinationFolder,
+        ts: appFolder + "**/*.ts",
     };
 
     return config;

@@ -26,6 +26,20 @@ gulp.task('compile:sass', function () {
             .pipe(gulp.dest(config.scssDest));
 });
 
+gulp.task('compile:ts', function () {
+    log('Compiling Typescript to Javascript...');
+
+    return gulp
+        .src(config.ts)
+        .pipe($.sourcemaps.init())
+        .pipe($.typescript({
+            noImplicitAny: true,
+            target: 'ES5'
+        }))
+        .pipe($.sourcemaps.write('.'))
+        .pipe(gulp.dest(config.appFolder));
+});
+
 function log(msg) {
     if (typeof msg === 'object') {
         for (var item in msg) {

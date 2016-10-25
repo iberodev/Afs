@@ -4,7 +4,5 @@
             menuWidth: 240,
             closeOnClick: true 
         });
-        $('.parallax').parallax();
-        $('.scrollspy').scrollSpy();
     });
 })(jQuery);

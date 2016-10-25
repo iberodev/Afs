@@ -1,0 +1,1 @@
+{"version":3,"sources":["services/services.module.ts"],"names":[],"mappings":"AAAA,CAAC;IACG,YAAY,CAAC;IAEb,OAAO,CAAC,MAAM,CAAC,cAAc,EAAE,EAAE,CAAC,CAAC;AACvC,CAAC,CAAC,EAAE,CAAC","file":"services.module.js","sourcesContent":["((): void => {\r\n    \"use strict\";\r\n\r\n    angular.module(\"app.services\", []);\r\n})();"]}
