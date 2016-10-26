@@ -47,7 +47,6 @@ namespace Afs.Diego.Web
 
             // Add framework services.
             services.AddMvc();
-
             ConfigureAutoMapper(services);
             BootstrapAppConfiguration(services);
             BootstrapServices(services);
@@ -74,6 +73,7 @@ namespace Afs.Diego.Web
 
         private void BootstrapRepositories(IServiceCollection services)
         {
+            services.AddTransient<AfsDbContextSeedData>();
             services.AddScoped<IApiRequestRepository, ApiRequestRepository>();
         }
 
@@ -81,6 +81,7 @@ namespace Afs.Diego.Web
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env, ILoggerFactory loggerFactory,
             AfsDbContext context,
+            AfsDbContextSeedData seeder,
             IEnumerable<IAutoMapperTypeConfigurator> autoMapperTypeConfigurations)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -104,8 +105,9 @@ namespace Afs.Diego.Web
             });
             Mapper.Configuration.AssertConfigurationIsValid();
 
-            // Apply Migrations automatically
+            // Apply Migrations automatically and seed sample
             context.Database.Migrate();
+            seeder.EnsureSeedData();
 
             app.UseStaticFiles();
 

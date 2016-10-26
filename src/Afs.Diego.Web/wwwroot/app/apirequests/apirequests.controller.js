@@ -7,13 +7,27 @@ var app;
             function ApiRequestsController(apiRequestsService) {
                 this.apiRequestsService = apiRequestsService;
                 this.textToEncode = "";
+                this.textEncoded = "";
                 this.textToDecode = "";
+                this.textDecoded = "";
                 this.historyRequests = [];
                 this.init();
             }
             ApiRequestsController.prototype.encode = function () {
+                var _this = this;
+                this.textEncoded = "";
+                this.apiRequestsService.getEncodedText(this.textToEncode)
+                    .then(function (text) {
+                    _this.textEncoded = text;
+                });
             };
             ApiRequestsController.prototype.decode = function () {
+                var _this = this;
+                this.textDecoded = "";
+                this.apiRequestsService.getDecodedText(this.textToDecode)
+                    .then(function (text) {
+                    _this.textDecoded = text;
+                });
             };
             ApiRequestsController.prototype.init = function () {
                 var _this = this;

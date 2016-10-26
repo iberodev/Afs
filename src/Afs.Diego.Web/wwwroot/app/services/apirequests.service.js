@@ -3,6 +3,11 @@ var app;
     var services;
     (function (services) {
         "use strict";
+        var EncodeDecodeRequestType;
+        (function (EncodeDecodeRequestType) {
+            EncodeDecodeRequestType[EncodeDecodeRequestType["Encode"] = 0] = "Encode";
+            EncodeDecodeRequestType[EncodeDecodeRequestType["Decode"] = 1] = "Decode";
+        })(EncodeDecodeRequestType || (EncodeDecodeRequestType = {}));
         var ApiRequestsService = (function () {
             function ApiRequestsService(apiRequestsRestangular) {
                 this.apiRequestsRestangular = apiRequestsRestangular;
@@ -12,6 +17,28 @@ var app;
                     .customGET("")
                     .then(function (restangularizedRequests) {
                     return restangularizedRequests.plain();
+                });
+            };
+            ApiRequestsService.prototype.getEncodedText = function (text) {
+                var element = {
+                    encodeDecodeRequestType: EncodeDecodeRequestType.Encode,
+                    text: text
+                };
+                return this.apiRequestsRestangular
+                    .customPOST(element)
+                    .then(function (text) {
+                    return text.plain();
+                });
+            };
+            ApiRequestsService.prototype.getDecodedText = function (text) {
+                var element = {
+                    encodeDecodeRequestType: EncodeDecodeRequestType.Decode,
+                    text: text
+                };
+                return this.apiRequestsRestangular
+                    .customPOST(element)
+                    .then(function (text) {
+                    return text.plain();
                 });
             };
             return ApiRequestsService;

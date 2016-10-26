@@ -8,6 +8,8 @@ using Afs.Diego.Data.AppSettings;
 using Microsoft.Extensions.Options;
 using Afs.Diego.Data.Exceptions;
 using Afs.Diego.Common;
+using Afs.Diego.Common.TypeMapping;
+using System.Linq;
 
 namespace Afs.Diego.Web.Services.ApiRequestServices
 {
@@ -15,10 +17,12 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
     {
         private readonly MashapeOptions _mashapeOptions;
         private readonly IApiRequestRepository _apiRequestRepository;
+        private readonly IAutoMapper _autoMapper;
 
         public ApiRequestService(
             IOptions<MashapeOptions> mashapeOptions,
-            IApiRequestRepository apiRequestRepository)
+            IApiRequestRepository apiRequestRepository,
+            IAutoMapper autoMapper)
         {
             if (mashapeOptions == null || mashapeOptions.Value == null)
             {
@@ -27,13 +31,9 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
             }
             _mashapeOptions = mashapeOptions.Value;
             _apiRequestRepository = apiRequestRepository;
+            _autoMapper = autoMapper;
         }
-
-        public Task<ApiRequest> AddApiRequestAsync(ApiRequest apiRequest)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public Task<string> Decode(string text)
         {
             using (var httpClient = new HttpClient())
@@ -54,9 +54,11 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<ApiRequest>> GetAllApiRequestsAsync()
+        public async Task<IEnumerable<ApiRequest>> GetAllApiRequestsAsync()
         {
-            throw new NotImplementedException();
+            var requestEntities = await _apiRequestRepository.GetApiRequestsAsync();
+            var requestServiceModels = requestEntities.Select(r => _autoMapper.Map<ApiRequest>(r));
+            return requestServiceModels;
         }
     }
 }

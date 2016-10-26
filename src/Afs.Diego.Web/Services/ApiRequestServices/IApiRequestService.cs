@@ -8,8 +8,6 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
     {
         Task<IEnumerable<ApiRequest>> GetAllApiRequestsAsync();
 
-        Task<ApiRequest> AddApiRequestAsync(ApiRequest apiRequest);
-
         Task<string> Encode(string text);
 
         Task<string> Decode(string text);
