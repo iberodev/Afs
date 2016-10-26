@@ -5,6 +5,7 @@
 /// <reference path="app/apirequests/apirequests.module.js" />
 /// <reference path="app/app.core.module.js" />
 /// <reference path="app/app.module.js" />
+/// <reference path="app/app.restangular.config.js" />
 /// <reference path="app/app.run.js" />
 /// <reference path="app/services/apirequests.restangular.js" />
 /// <reference path="app/services/apirequests.service.js" />

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-strict-di>
 <head>
     <meta charset="utf-8">
     
@@ -35,16 +35,18 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/materialize/dist/js/materialize.min.js"></script>
-    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/lodash/dist/lodash.min.js"></script>
     <script src="~/lib/restangular/dist/restangular.min.js"></script>
     <script src="~/js/afsdiego.js"></script>
 
     <!-- these javascript files should be injected here dynamically (i.e: wiredep) -->
-    <script src="~/app/app.module.js"></script>
     <script src="~/app/app.core.module.js"></script>
-    <script src="~/app/app.run.js"></script>
+    <script src="~/app/app.module.js"></script>
     <script src="~/app/services/services.module.js"></script>
     <script src="~/app/apirequests/apirequests.module.js"></script>
+    <script src="~/app/app.restangular.config.js"></script>
+    <script src="~/app/app.run.js"></script>
     <script src="~/app/services/apirequests.service.js"></script>
     <script src="~/app/apirequests/apirequests.controller.js"></script>
 </body>
