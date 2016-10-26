@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 using Afs.Diego.Data.Repository;
 using Afs.Diego.Data.SqlServer.Repository;
 using Afs.Diego.Web.Services.ApiRequestServices;
-using System;
 using Afs.Diego.Data.AppSettings;
 using Afs.Diego.Common.TypeMapping;
 using Afs.Diego.Web.AutoMappingConfiguration;

@@ -3,11 +3,11 @@ var app;
     var services;
     (function (services) {
         "use strict";
-        var EncodeDecodeRequestType;
-        (function (EncodeDecodeRequestType) {
-            EncodeDecodeRequestType[EncodeDecodeRequestType["Encode"] = 0] = "Encode";
-            EncodeDecodeRequestType[EncodeDecodeRequestType["Decode"] = 1] = "Decode";
-        })(EncodeDecodeRequestType || (EncodeDecodeRequestType = {}));
+        var ApiRequestType;
+        (function (ApiRequestType) {
+            ApiRequestType[ApiRequestType["Encode"] = 0] = "Encode";
+            ApiRequestType[ApiRequestType["Decode"] = 1] = "Decode";
+        })(ApiRequestType || (ApiRequestType = {}));
         var ApiRequestsService = (function () {
             function ApiRequestsService(apiRequestsRestangular) {
                 this.apiRequestsRestangular = apiRequestsRestangular;
@@ -21,7 +21,7 @@ var app;
             };
             ApiRequestsService.prototype.getEncodedText = function (text) {
                 var element = {
-                    encodeDecodeRequestType: EncodeDecodeRequestType.Encode,
+                    apiRequestType: ApiRequestType.Encode,
                     text: text
                 };
                 return this.apiRequestsRestangular
@@ -32,7 +32,7 @@ var app;
             };
             ApiRequestsService.prototype.getDecodedText = function (text) {
                 var element = {
-                    encodeDecodeRequestType: EncodeDecodeRequestType.Decode,
+                    apiRequestType: ApiRequestType.Decode,
                     text: text
                 };
                 return this.apiRequestsRestangular
@@ -54,5 +54,3 @@ var app;
             .factory("app.services.ApiRequestsService", factory);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
-//# sourceMappingURL=apirequests.service.js.map

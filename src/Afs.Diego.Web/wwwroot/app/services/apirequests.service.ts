@@ -1,14 +1,14 @@
 ﻿namespace app.services {
     "use strict";
 
-    enum EncodeDecodeRequestType {
+    enum ApiRequestType {
         Encode = 0,
         Decode = 1
     }
 
     interface IEncodeDecodeRequest {
         text?: string;
-        encodeDecodeRequestType?: EncodeDecodeRequestType;
+        apiRequestType?: ApiRequestType;
     }
 
     export interface IApiRequestsService {
@@ -32,7 +32,7 @@
 
         public getEncodedText(text: string): ng.IPromise<string> {
             let element: IEncodeDecodeRequest = {
-                encodeDecodeRequestType: EncodeDecodeRequestType.Encode,
+                apiRequestType: ApiRequestType.Encode,
                 text: text
             };
 
@@ -45,7 +45,7 @@
 
         public getDecodedText(text: string): ng.IPromise<string> {
             let element: IEncodeDecodeRequest = {
-                encodeDecodeRequestType: EncodeDecodeRequestType.Decode,
+                apiRequestType: ApiRequestType.Decode,
                 text: text
             };
 

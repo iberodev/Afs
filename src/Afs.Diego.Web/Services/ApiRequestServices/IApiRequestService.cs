@@ -1,4 +1,5 @@
-﻿using Afs.Diego.Web.Model;
+﻿using Afs.Diego.Common;
+using Afs.Diego.Web.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -8,8 +9,6 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
     {
         Task<IEnumerable<ApiRequest>> GetAllApiRequestsAsync();
 
-        Task<string> Encode(string text);
-
-        Task<string> Decode(string text);
+        Task<string> EncodeDecodeAsync(string text, ApiRequestType apiRequestType);
     }
 }

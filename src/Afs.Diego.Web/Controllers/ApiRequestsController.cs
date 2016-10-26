@@ -1,10 +1,6 @@
-﻿using Afs.Diego.Common;
-using Afs.Diego.Web.Model;
+﻿using Afs.Diego.Web.Model;
 using Afs.Diego.Web.Services.ApiRequestServices;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Afs.Diego.Web.Controllers
@@ -31,17 +27,9 @@ namespace Afs.Diego.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewRequestAsync([FromBody]EncodeDecodeRequest encodeDecodeRequest)
         {
-            if(EncodeDecodeRequestType.Encode == encodeDecodeRequest.EncodeDecodeRequestType)
-            {
-                var result = await _apiRequestService.Encode(encodeDecodeRequest.Text);
-                return Ok(result);
-            } 
-            else if(EncodeDecodeRequestType.Decode == encodeDecodeRequest.EncodeDecodeRequestType)
-            {
-                var result = await _apiRequestService.Decode(encodeDecodeRequest.Text);
-                return Ok(result);
-            }
-            throw new NotSupportedException("The type of request is not supported");
+            var result = 
+                await _apiRequestService.EncodeDecodeAsync(encodeDecodeRequest.Text, encodeDecodeRequest.ApiRequestType);
+            return Ok(result);
         }
     }
 }

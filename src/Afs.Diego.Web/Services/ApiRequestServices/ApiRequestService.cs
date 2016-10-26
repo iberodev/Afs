@@ -33,25 +33,37 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
             _apiRequestRepository = apiRequestRepository;
             _autoMapper = autoMapper;
         }
-        
-        public Task<string> Decode(string text)
+
+        public async Task<string> EncodeDecodeAsync(string text, ApiRequestType apiRequestType)
         {
             using (var httpClient = new HttpClient())
             {
+                DateTime timeBegin = DateTime.UtcNow;
                 httpClient.BaseAddress = new Uri(_mashapeOptions.UrlDecode);
+                httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Add(Constants.ApiSettings.HEADER_MASHAPE_X_KEY, _mashapeOptions.XMashapeKey);
                 httpClient.DefaultRequestHeaders.Add(Constants.ApiSettings.HEADER_ACCEPT, Constants.ApiSettings.HEADER_ACCEPT_TEXT_PLAIN);
+                
+                var relativePath = $"/decode?text={text}";
 
-                //HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, )
+                var response = await httpClient.GetAsync(relativePath);
 
-                //httpClient.SendAsync()
+                var textResponse = await response.Content.ReadAsStringAsync();
+
+                await _apiRequestRepository.AddApiRequestAsync(new Data.Entities.ApiRequest
+                {
+                    ApiRequestType = apiRequestType,
+                    HttpMethod = Common.HttpMethod.Get,
+                    RequestBeginTime = timeBegin,
+                    RequestEndTime = DateTime.UtcNow,
+                    IsDeleted = false,
+                    RequestUrl = response.RequestMessage.RequestUri.ToString(),
+                    Error = response.IsSuccessStatusCode ? null : response.ReasonPhrase,
+                    ResponseText = textResponse,
+                    ResponseCode = (int)response.StatusCode
+                });
+                return textResponse;
             }
-            return null;
-        }
-
-        public Task<string> Encode(string text)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<ApiRequest>> GetAllApiRequestsAsync()

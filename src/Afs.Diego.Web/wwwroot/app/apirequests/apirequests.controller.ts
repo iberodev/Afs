@@ -35,7 +35,12 @@
             this.apiRequestsService.getEncodedText(this.textToEncode)
                 .then((text: string) => {
                     this.textEncoded = text;
-                })
+                    this.refreshRequestHistory();
+                }, (error: any) => {
+                    console.error(error);
+                    this.textEncoded = "There was an error!";
+                    this.refreshRequestHistory();
+                });
         }
 
         public decode(): void {
@@ -43,10 +48,19 @@
             this.apiRequestsService.getDecodedText(this.textToDecode)
                 .then((text: string) => {
                     this.textDecoded = text;
+                    this.refreshRequestHistory();
+                }, (error: any) => {
+                    console.error(error);
+                    this.textDecoded = "There was an error!";
+                    this.refreshRequestHistory();
                 })
         }
         
         private init(): void {
+            this.refreshRequestHistory();
+        }
+
+        private refreshRequestHistory(): void {
             this.apiRequestsService.getHistoryRequests()
                 .then((historyRequests: Array<models.IApiRequestModel>) => {
                     this.historyRequests = historyRequests;
