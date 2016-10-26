@@ -59,3 +59,5 @@ var app;
             .controller("app.apirequests.ApiRequestsController", ApiRequestsController);
     })(businesses = app.businesses || (app.businesses = {}));
 })(app || (app = {}));
+
+//# sourceMappingURL=apirequests.controller.js.map

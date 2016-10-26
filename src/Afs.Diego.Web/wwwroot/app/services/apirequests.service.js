@@ -54,3 +54,5 @@ var app;
             .factory("app.services.ApiRequestsService", factory);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+
+//# sourceMappingURL=apirequests.service.js.map

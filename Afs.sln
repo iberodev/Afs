@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{657C8A78-C7E5-4905-8F4E-18CFA2A75ED3}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Afs.Diego.Web", "src\Afs.Diego.Web\Afs.Diego.Web.xproj", "{BC5F1A0B-BF5D-49F6-AEB5-E91A497C0636}"

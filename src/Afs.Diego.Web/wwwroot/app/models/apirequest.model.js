@@ -5,3 +5,5 @@ var app;
         "use strict";
     })(models = app.models || (app.models = {}));
 })(app || (app = {}));
+
+//# sourceMappingURL=apirequest.model.js.map
