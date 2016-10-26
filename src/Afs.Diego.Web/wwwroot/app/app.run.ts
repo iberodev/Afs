@@ -1,12 +1,7 @@
 ((): void => {
     "use strict";
-
-    angular
-        .module("app")
-        .run(run);
-
-    run.$inject = [
-    ];
-    function run(): void {
-    }
+    (<any>$('.button-collapse')).sideNav({
+        menuWidth: 240, // Default is 240
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
 })();

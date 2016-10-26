@@ -4,7 +4,11 @@
             <h1 class="center white-text">AFS - Diego</h1>
             <div class="row center">
                 <h5 class="header col s12 white-text light">Sample web application</h5>
-                <p class="white-text">This application has been implemented using SPA + REST approach using ASP.NET Core, ASP.NET MVC, Entity Framework Core, AutoMapper, Materialize, NuGet, Npm, Gulp, etc.</p>
+                <p class="white-text">This application has been implemented using SPA + REST approach with ASP.NET Core, ASP.NET MVC, Entity Framework Core, AutoMapper, Materialize, NuGet, Npm, Gulp, etc.</p>
+                <p class="white-text">
+                    More info at the
+                    <a class="white-text" href="https://github.com/iberodev/Afs" target="_blank">public repository</a>
+                </p>
             </div>
             <div class="row center">
                 <a href="#sample" id="download-button" class="btn btn-large waves-effect waves-light indigo white-text">Sample</a>
@@ -74,12 +78,21 @@
 
     <div class="section">
         <h2>History of Requests</h2>
-        <div class="row">
-            <ol>
-                <li ng-repeat="historyRequest in apiRequest.historyRequests">
-                    {{historyRequest.id}}
-                </li>
-            </ol>
+        <div class="row" ng-repeat="historyRequest in apiRequest.historyRequests">
+            <div class="col s12">
+                <hr />
+                <ul>
+                    <li>ID: {{historyRequest.id}}</li>
+                    <li>Request Start Time: {{historyRequest.requestBeginTime | date:'dd MMM yyyy HH:mm'}}</li>
+                    <li>Request End Time: {{historyRequest.requestEndTime | date:'dd MMM yyyy HH:mm'}}</li>
+                    <li>Method: {{historyRequest.httpMethodText}}</li>
+                    <li>Url: {{historyRequest.requestUrl}}</li>
+                    <li>Response Code: {{historyRequest.responseCode}}</li>
+                    <li>Request Type: {{historyRequest.apiRequestTypeText}}</li>
+                    <li>Result: <b>{{historyRequest.responseText}}</b></li>
+                    <li ng-show="historyRequest.error" class="red-text">{{historyRequest.error}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

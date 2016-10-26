@@ -11,7 +11,6 @@
 /// <reference path="app/services/apirequests.restangular.js" />
 /// <reference path="app/services/apirequests.service.js" />
 /// <reference path="app/services/services.module.js" />
-/// <reference path="js/afsdiego.min.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
