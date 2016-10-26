@@ -17,3 +17,6 @@ This is a sample project that uses AspNet Core, AspNet Mvc, Entity Framework Cor
 * ```bower install``` to install bower dependencies such as angular, jquery, materialize and restangular
 * ```gulp compile``` to run the gulp tasks that compile scss to css and typescript files to javascript
 * ```dotnet run``` to run the application on Kestrel. Go to http://localhost:5000
+
+### IMPORTANT: The X-Mashape-Key for the samples can be easily configured at: ```\Afs\src\Afs.Diego.Web\appsettings.json```. Currently it is using ```"XMashapeKey": "AtCVOUo9CJmshYa5btdjo4N5tpUIp1gZ7JZjsnLLsJJpKX3CSR"``` but the account seems to be always suspended.
+
