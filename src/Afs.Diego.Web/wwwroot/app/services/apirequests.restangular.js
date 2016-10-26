@@ -9,6 +9,8 @@ var app;
         }
         angular
             .module("app.services")
-            .factory("app.services.ApiRequestRestangular", factory);
+            .factory("app.services.ApiRequestsRestangular", factory);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+
+//# sourceMappingURL=apirequests.restangular.js.map

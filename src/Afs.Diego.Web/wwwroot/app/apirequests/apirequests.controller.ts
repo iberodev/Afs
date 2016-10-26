@@ -2,19 +2,41 @@
     "use strict";
 
     export interface IApiRequestsController {
+        textToEncode: string;
+        textToDecode: string;
+        historyRequests: Array<models.IApiRequestModel>;
+        encode(): void;
+        decode(): void;
     }
 
     class ApiRequestsController implements IApiRequestsController {
         public static $inject: string[] = [
-            
+            "app.services.ApiRequestsService"
         ];
 
-        constructor() {
+        constructor(private apiRequestsService: services.IApiRequestsService) {
             this.init();
+        }
+
+        textToEncode: string = "";
+
+        textToDecode: string = "";
+
+        historyRequests: Array<models.IApiRequestModel> = [];
+
+        public encode(): void {
+
+        }
+
+        public decode(): void {
+
         }
         
         private init(): void {
-            console.log("Hello api requests");
+            this.apiRequestsService.getHistoryRequests()
+                .then((historyRequests: Array<models.IApiRequestModel>) => {
+                    this.historyRequests = historyRequests;
+                });
         }
     }
 

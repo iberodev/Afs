@@ -10,3 +10,5 @@
         restangularProvider.setBaseUrl("/api/");
     }
 })();
+
+//# sourceMappingURL=app.restangular.config.js.map

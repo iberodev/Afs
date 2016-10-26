@@ -5,11 +5,15 @@ var gulp = require('gulp'),
     $ = require('gulp-load-plugins')({ lazy: true }),
     config = require('./gulp.config')();
 
-gulp.task("clean", ["clean:css"]);
+gulp.task("clean", ["clean:css", "clean:js"]);
 
 gulp.task("clean:css", function (cb) {
     log('Cleaning styles');
     rimraf(config.scssDest, cb);
+});
+
+gulp.task("clean:js", function (cb) {
+    rimraf(config.js, cb);
 });
 
 gulp.task('bower', function () {
@@ -17,6 +21,8 @@ gulp.task('bower', function () {
     return $.bower()
             .pipe(gulp.dest(config.bowerDest));
 });
+
+gulp.task("compile", ["compile:sass", "compile:ts"]);
 
 gulp.task('compile:sass', function () {
     log('Compiling SASS ' + config.scss);

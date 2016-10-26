@@ -6398,3 +6398,7 @@ nav {
   height: 64px; }
   nav ul a, nav .brand-logo {
     color: white; }
+
+h2 {
+  padding-left: 50px;
+  color: #010530; }
