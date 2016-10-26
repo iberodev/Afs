@@ -80,6 +80,7 @@ namespace Afs.Diego.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, 
             IHostingEnvironment env, ILoggerFactory loggerFactory,
+            AfsDbContext context,
             IEnumerable<IAutoMapperTypeConfigurator> autoMapperTypeConfigurations)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -102,6 +103,9 @@ namespace Afs.Diego.Web
                     .ForEach(x => x.Configure(config));
             });
             Mapper.Configuration.AssertConfigurationIsValid();
+
+            // Apply Migrations automatically
+            context.Database.Migrate();
 
             app.UseStaticFiles();
 
