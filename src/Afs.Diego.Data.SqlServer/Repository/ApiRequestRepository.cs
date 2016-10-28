@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Afs.Diego.Data.Entities;
 using Afs.Diego.Data.SqlServer.Storage.EF;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Afs.Diego.Data.SqlServer.Repository
 {
@@ -23,6 +24,7 @@ namespace Afs.Diego.Data.SqlServer.Repository
         public async Task<IEnumerable<ApiRequest>> GetApiRequestsAsync()
         {
             var requests = await _context.ApiRequests
+                .OrderByDescending(r => r.CreatedOn)
                 .ToListAsync();
             return requests;
         }
