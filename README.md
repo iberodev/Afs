@@ -29,3 +29,8 @@ This is a complete sample project that uses the following technologies
 * ```bower install``` to install bower dependencies such as angular, jquery, materialize and restangular
 * ```gulp compile``` to run the gulp tasks that compile scss to css and typescript files to javascript
 * ```dotnet run``` to run the application on Kestrel. Go to http://localhost:5000
+
+## Unit Tests
+There is a project for unit tests using xUnit, but Moq is currently unavailable for ASP.NET Core so there is nothing meaningful yet.
+* ```cd src/Afs.Diego.Web.Test```
+* ```dotnet test```
