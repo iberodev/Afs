@@ -15,7 +15,7 @@ var app;
             }
             ApiRequestsController.prototype.encode = function () {
                 var _this = this;
-                this.textEncoded = "";
+                this.textEncoded = "loading..";
                 this.apiRequestsService.getEncodedText(this.textToEncode)
                     .then(function (text) {
                     _this.textEncoded = text;
@@ -28,7 +28,7 @@ var app;
             };
             ApiRequestsController.prototype.decode = function () {
                 var _this = this;
-                this.textDecoded = "";
+                this.textDecoded = "loading..";
                 this.apiRequestsService.getDecodedText(this.textToDecode)
                     .then(function (text) {
                     _this.textDecoded = text;
@@ -59,5 +59,3 @@ var app;
             .controller("app.apirequests.ApiRequestsController", ApiRequestsController);
     })(businesses = app.businesses || (app.businesses = {}));
 })(app || (app = {}));
-
-//# sourceMappingURL=apirequests.controller.js.map

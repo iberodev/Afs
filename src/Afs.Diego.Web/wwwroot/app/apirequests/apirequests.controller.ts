@@ -31,7 +31,7 @@
         historyRequests: Array<models.IApiRequestModel> = [];
 
         public encode(): void {
-            this.textEncoded = "";
+            this.textEncoded = "loading..";
             this.apiRequestsService.getEncodedText(this.textToEncode)
                 .then((text: string) => {
                     this.textEncoded = text;
@@ -44,7 +44,7 @@
         }
 
         public decode(): void {
-            this.textDecoded = "";
+            this.textDecoded = "loading..";
             this.apiRequestsService.getDecodedText(this.textToDecode)
                 .then((text: string) => {
                     this.textDecoded = text;

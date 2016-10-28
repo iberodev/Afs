@@ -5,5 +5,3 @@
         "restangular"
     ]);
 })();
-
-//# sourceMappingURL=app.core.module.js.map

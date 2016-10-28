@@ -2,8 +2,8 @@
     "use strict";
 
     enum ApiRequestType {
-        Encode = 0,
-        Decode = 1
+        Decode = 0,
+        Encode = 1
     }
 
     interface IEncodeDecodeRequest {
@@ -38,8 +38,8 @@
 
             return this.apiRequestsRestangular
                 .customPOST(element)
-                .then((text: restangular.IElement) => {
-                    return text.plain();
+                .then((text: string) => {
+                    return text;
                 });
         }
 
@@ -51,8 +51,8 @@
 
             return this.apiRequestsRestangular
                 .customPOST(element)
-                .then((text: restangular.IElement) => {
-                    return text.plain();
+                .then((text: string) => {
+                    return text;
                 });
         }
     }

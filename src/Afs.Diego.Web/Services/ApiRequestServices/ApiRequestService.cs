@@ -44,7 +44,7 @@ namespace Afs.Diego.Web.Services.ApiRequestServices
                 httpClient.DefaultRequestHeaders.Add(Constants.ApiSettings.HEADER_MASHAPE_X_KEY, _mashapeOptions.XMashapeKey);
                 httpClient.DefaultRequestHeaders.Add(Constants.ApiSettings.HEADER_ACCEPT, Constants.ApiSettings.HEADER_ACCEPT_TEXT_PLAIN);
                 
-                var relativePath = $"/decode?text={text}";
+                var relativePath = ApiRequestType.Encode == apiRequestType? $"/encode?text={text}" : $"/decode?text={text}";
 
                 var response = await httpClient.GetAsync(relativePath);
 
