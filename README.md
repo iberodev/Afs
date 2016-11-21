@@ -1,4 +1,4 @@
-### AFS - Diego
+### Getting started with Asp.Net Core, Asp.Net Mvc, Entity Framework Code, AngularJs and Typescript 
 
 ## Overview
 This is a complete sample project that uses the following technologies
